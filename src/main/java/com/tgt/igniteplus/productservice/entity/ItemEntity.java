@@ -1,33 +1,35 @@
 package com.tgt.igniteplus.productservice.entity;
 
+import com.datastax.oss.driver.api.core.type.DataType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.cassandra.core.mapping.PrimaryKey;
-import org.springframework.data.cassandra.core.mapping.Table;
+import org.springframework.data.cassandra.core.mapping.*;
+
 
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
-@Table
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@UserDefinedType(value = "item")
 public class ItemEntity {
 
     @PrimaryKey
-    private int id;
+    private String uuid = UUID.randomUUID().toString();
+    private String imageUrl;
     private String group;
     private String category;
     private String brand;
-    private String title;
+    private String bookTitle;
     private String publisher;
-    private Set<String> color;
+    private String color;
     private Set<String> size;
     private Float price;
     private Boolean inStock;
-    private String imageUrl;
     private Map<String,String> description;
-
 
 }
