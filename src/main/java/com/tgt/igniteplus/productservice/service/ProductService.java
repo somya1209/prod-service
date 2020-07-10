@@ -22,6 +22,7 @@ public class ProductService {
     private CategoryRepo categoryRepo;
     private GroupRepo groupRepo;
 
+    @Autowired
     public ProductService(ProductRepository productRepository, CategoryRepo categoryRepo, GroupRepo groupRepo) {
         this.productRepository = productRepository;
         this.categoryRepo = categoryRepo;
@@ -67,15 +68,27 @@ public class ProductService {
 
     //**********************************************************************************************************************************************
 
-//    //getAll groups
-//    public List<GroupEntity> getAllGroups(){
-//        return groupRepo.findAll();
-//    }
+    //getAll groups
+    public List<CategoryEntity> getAllCategories(){
+        return categoryRepo.findAll();
+    }
 
-//    //create group
-//    public GroupEntity createGroup(GroupEntity groupEntity){
-//        return groupRepo.save(groupEntity);
-//    }
+    //create group
+    public CategoryEntity createCategory(CategoryEntity categoryEntity){
+        return categoryRepo.save(categoryEntity);
+    }
+
+
+        //******************************************************************************************************************************
+    //getAll groups
+    public List<GroupEntity> getAllGroups(){
+        return groupRepo.findAll();
+    }
+
+    //create group
+    public GroupEntity createGroup(GroupEntity groupEntity){
+        return groupRepo.save(groupEntity);
+    }
 //
 //    //getItemEntityByID
 //    public Optional<GroupEntity> getGroupById(String id) throws ItemNotFoundException {

@@ -5,11 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
-import org.springframework.data.cassandra.core.mapping.Table;
+
 import org.springframework.data.cassandra.core.mapping.UserDefinedType;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 
 @Data
@@ -22,7 +21,8 @@ public class CategoryEntity {
     private String uuid = UUID.randomUUID().toString();
     private String imageUrl;
     private String name;
-    private List<ItemEntity> items;
+    private List<ItemEntity> items=new ArrayList<>();
+
 
 
 }

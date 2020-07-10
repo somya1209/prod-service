@@ -9,8 +9,7 @@ import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
 
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Table(value = "group_category")
 @Data
@@ -23,6 +22,6 @@ public class GroupEntity {
     private String uuid = UUID.randomUUID().toString();
     private String imageUrl;
     private String name;
-    private List<CategoryEntity> categories;
+    private List<CategoryEntity> categories=new ArrayList<>();
 
 }

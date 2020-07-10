@@ -64,20 +64,33 @@ public class ProductController {
         productService.deleteItemById(id);
     }
 
+    //****************************************************************************************
+    //getAll categories
+    @GetMapping("/categories")
+    public List<CategoryEntity> getAllCategories(){
+        return productService.getAllCategories();
+
+    }
+
+    //create categories
+    @PostMapping("/categories")
+    public CategoryEntity createCategories(@RequestBody CategoryEntity categoryEntity){
+        return productService.createCategory(categoryEntity);
+    }
     //**********************************************************************************************************
 
-//    //getAll groups
-//    @GetMapping("/group")
-//    public List<GroupEntity> getAllGroups(){
-//        return productService.getAllGroups();
-//
-//    }
-//
-//    //create group
-//    @PostMapping("/group")
-//    public GroupEntity createGroup(@RequestBody GroupEntity groupEntity){
-//        return productService.createGroup(groupEntity);
-//    }
+    //getAll groups
+    @GetMapping("/groups")
+    public List<GroupEntity> getAllGroups(){
+        return productService.getAllGroups();
+
+    }
+
+    //create group
+    @PostMapping("/groups")
+    public GroupEntity createGroup(@RequestBody GroupEntity groupEntity){
+        return productService.createGroup(groupEntity);
+    }
 //
 //    //get groups by id
 //    @GetMapping("/group/{id}")
@@ -104,7 +117,7 @@ public class ProductController {
 //    public void deleteGroupById(@PathVariable("id") String id)throws ItemNotFoundException{
 //        productService.deleteGroupById(id);
 //    }
-//
+
 
 
 }
